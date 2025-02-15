@@ -144,7 +144,7 @@ $$
 1. Clone this repository.
 2. Open terminal and open the folder. 
     ```sh
-    cd path/heun-method-with-nacozy-stabilization
+    cd path/Heun-Method-With-Nacozy-Stabilization
     ```
 3. Run this command to install all necessary libraries.
     ```sh
