@@ -17,7 +17,7 @@ r = \sqrt{x_1^2 + x_2^2}, \quad v = \sqrt{x_3^2 + x_4^2}
 $$
 
 $$
-\vec{x} = (x_1, x_2, x_3, x_4), \quad \vec{x_0} = \left\{ x_1(t_0), x_2(t_0), x_3(t_0), x_4(t_0) \right\}
+\vec{x} = (x_1, x_2, x_3, x_4), \quad \vec{x_0} = \left( x_1(t_0), x_2(t_0), x_3(t_0), x_4(t_0) \right)
 $$
 
 Initial conditions:
@@ -31,14 +31,13 @@ x_3(t_0) = 0, \quad x_4(t_0) = 1.
 $$
 
 Integration interval: 
-
 $\left[ t_0; t_0+1000T \right]$, where $T = 2\pi$
 
 Timestep:
-
 $h=\frac{T}{2^i}$ , where $i = (4, 5,..., 12)$
 
 Energy integral:
+
 $$
 I(\vec{x}) = \frac{v^2}{2} - \frac{1}{r}
 $$
@@ -47,28 +46,33 @@ Using [Heun's method](https://en.wikipedia.org/wiki/Heun%27s_method) with Nacozy
 
 ## Heun's method
 **Prediction step:**
-    $$
-    k_1=f(t_0,x_0)
-    $$
+
+$$
+k_1=f(t_0,x_0)
+$$
 
 **Second estimate:**
-    $$
-    k_2=f(t_0+h,x_0+h \cdot k_1)
-    $$
+
+$$
+k_2=f(t_0+h,x_0+h \cdot k_1)
+$$
 
 **Correction step:**
-    $$
-    x_1 = x_0 + \frac{h}{2} \left( k_1+k_2 \right)
-    $$
+
+$$
+x_1 = x_0 + \frac{h}{2} \left( k_1+k_2 \right)
+$$
 
 ## Nacozy stabilization
 
 **Position stabilization:**
+
 $$
 \bar{\mathbf{x}} = \mathbf{x} \left( 1 - \frac{\mathcal{H}}{D} \frac{\mu}{|\mathbf{x}|^3} \right)
 $$
 
 **Velocity stabilization:**
+
 $$
 \dot{\bar{\mathbf{x}}} = \dot{\mathbf{x}} \left( 1 - \frac{\mathcal{H}}{D} \right)
 $$
@@ -88,24 +92,25 @@ $$
 $$
 
 ## Error and Energy Deviation
+
 **Error:**
+
 $$
-\lvert \Delta \vec{r} \rvert = \sqrt{(\vec{r_1} - \vec{r_1^*})^2 + (\vec{r_2} - \vec{r_2^*})^2}
+\lvert \Delta \vec{r} \rvert = \sqrt{\left( \vec{r}_1 - \vec{r}_1^* \right)^2 + \left( \vec{r}_2 - \vec{r}_2^* \right)^2}
 $$
 
 where
 
 $$
-\vec{r_1^*} = \cos(t),
-$$
-$$
-\vec{r_2^*} = \sin(t)
+\vec{r}_1^* = \cos(t), \quad \vec{r}_2^* = \sin(t)
 $$
 
 **Energy Deviation:**
+
 $$
-\Delta I = \lvert I(\vec{x}) - I(\vec{x_0}) \rvert
+\Delta I = \lvert I(\vec{x}) - I(\vec{x}_0) \rvert
 $$
+
 
 # Result:
 ## Without Nacozy Stabilization
